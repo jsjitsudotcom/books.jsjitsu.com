@@ -6,7 +6,7 @@ import Connect from "./containers/Books";
 
 import Book from "./../Book/Book";
 
-const Loading = Array.from(new Array(4)).map(i => <Book key={i} loading />);
+const Loading = Array.from(new Array(4)).map(i => <Book key={i + "/loading"} loading />);
 
 class Books extends PureComponent {
   render() {
@@ -14,8 +14,8 @@ class Books extends PureComponent {
       <div className={Style.container}>
         <div className={Style.books}>
           {this.props.books
-            .map(book => (
-              <div className={Style.book}>
+            .map((book, i) => (
+              <div className={Style.book} key={i}>
                 <Book
                   title={book.title}
                   date={book.first_publish_year}

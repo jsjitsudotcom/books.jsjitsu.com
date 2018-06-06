@@ -11,7 +11,7 @@ const Loading = () => (
 export default class Book extends PureComponent {
   render() {
     if (this.props.loading) return <Loading />;
-    
+
     return (
       <div onClick={this.props.onClick} className={Style.container}>
         <div
@@ -32,7 +32,7 @@ export default class Book extends PureComponent {
 
 Book.propTypes = {
   title: PropTypes.string,
-  author: PropTypes.string,
+  author: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   date: PropTypes.number,
   onClick: PropTypes.func
 };

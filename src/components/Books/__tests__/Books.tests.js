@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import sinon from "sinon";
-import Books from "./../Books";
+import {Component as Books} from "./../Books";
 
 import booksData from "./../../../../__fixtures__/books.json";
 
