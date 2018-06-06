@@ -18,10 +18,10 @@ export default {
    * @param {number} params.limit - Le nombre de livre à récupérer
    * @param {number} params.page - La pagination
    */
-  searchBooks({ query, limit, page }) {
+  searchBooks({ query, limit = 10, page }) {
     const limitParams = limit ? `&limit=${limit}` : "";
     const pageParams = limit ? `&page=${page}` : "";
     
-    return this.fetch(`search.json/?q=${query}${limitParams}${pageParams}`);
+    return this.fetch(`search.json?q=${query}${limitParams}${pageParams}`);
   }
 };

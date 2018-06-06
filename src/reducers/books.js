@@ -1,7 +1,7 @@
 import * as constants from "./../constants/books";
 
 const initialState = {
-  search: null,
+  search: "",
   books: [],
   fetching: false
 };
@@ -11,7 +11,8 @@ export default function(state = initialState, action) {
     [constants.changeSearchValue]() {
       return {
         ...state,
-        search: action.value
+        search: action.value,
+        books: []
       };
     },
 

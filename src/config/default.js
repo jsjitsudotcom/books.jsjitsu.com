@@ -1,3 +1,3 @@
 export default {
-  API_ENDPOINT: " http://openlibrary.org"
+  API_ENDPOINT: " https://openlibrary.org"
 };

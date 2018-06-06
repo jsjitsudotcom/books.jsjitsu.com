@@ -2,8 +2,16 @@ import React, { PureComponent } from "react";
 import Style from "./Book.scss";
 import PropTypes from "prop-types";
 
+const Loading = () => (
+  <div className={Style.container}>
+    <div className={Style.loading} />
+  </div>
+);
+
 export default class Book extends PureComponent {
   render() {
+    if (this.props.loading) return <Loading />;
+    
     return (
       <div onClick={this.props.onClick} className={Style.container}>
         <div
