@@ -1,4 +1,22 @@
 :local(.container) {
-  width: 150px;
-  padding: 0 5px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+:local(.icon) {
+  display: flex;
+  align-items: center;
+
+  img {
+    display: block;
+  }
+}
+
+:local(.input) {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  padding-left: 10px;
+  width: 100%;
 }

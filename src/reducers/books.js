@@ -1,59 +1,43 @@
-import * as constants from "./../constants/feeds";
-import { set, view, lensPath, concat, uniqBy, prop } from "ramda";
+import * as constants from "./../constants/books";
+
 const initialState = {
-  sources: {},
-  selected: null
+  search: null,
+  books: [],
+  fetching: false
 };
-
-const getInitialStateSource = (name, url, options) => ({
-  name,
-  url,
-  feeds: [],
-  fetching: false,
-  ...options
-});
-
-const getLensFeeds = name => lensPath(["sources", name, "feeds"]);
-const getLensFeching = name => lensPath(["sources", name, "fetching"]);
 
 export default function(state = initialState, action) {
   const actions = {
-    [constants.addSource]() {
-      return {
-        sources: {
-          ...state,
-          [action.name]: getInitialStateSource(
-            action.name,
-            action.url,
-            action.options
-          )
-        }
-      };
-    },
-
-    [constants.addFeeds]() {
-      const lensFeeds = getLensFeeds(action.name);
-      const getFeeds = view(lensFeeds, state);
-      const concatFeeds = uniqBy(prop("link"), concat(getFeeds, action.feeds));
-
-      return set(lensFeeds, concatFeeds, state);
-    },
-
-    [constants.selectSource]() {
+    [constants.changeSearchValue]() {
       return {
         ...state,
-        selected: action.name
+        search: action.value
       };
     },
 
-    [constants.fetchingSource]() {
-      const lensFetching = getLensFeching(action.name);
-      return set(lensFetching, true, state);
+    [constants.storeBooks]() {
+      if (action.search !== state.search) return state;
+
+      return {
+        ...state,
+        books: action.books
+      };
     },
 
-    [constants.fetchEndSource]() {
-      const lensFetching = getLensFeching(action.name);
-      return set(lensFetching, false, state);
+    [constants.fetching]() {
+      return {
+        ...state,
+        fetching: true
+      };
+    },
+
+    [constants.fetchEnd]() {
+      if (action.search !== state.search) return state;
+
+      return {
+        ...state,
+        fetching: false
+      };
     },
 
     default() {

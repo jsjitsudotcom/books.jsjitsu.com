@@ -1,8 +1,6 @@
-import * as feeds from "./feeds";
-import * as articles from "./articles";
+import * as books from "./books";
 
 /* istanbul ignore next */
 export default {
-  feeds,
-  articles
+  books
 };

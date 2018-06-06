@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search /> Suite de tests de l'affichage Le composant doit bien s'afficher 1`] = `
+<div
+  className="container"
+>
+  <label
+    className="icon"
+    htmlFor="search"
+  >
+    <img
+      alt="search"
+      src="search.svg"
+    />
+  </label>
+  <input
+    className="input"
+    id="search"
+    onChange={[Function]}
+    placeholder="Quel livre recherchez vous ?"
+    value="value"
+  />
+</div>
+`;

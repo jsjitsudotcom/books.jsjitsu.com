@@ -8,30 +8,27 @@ describe("<Search />", () => {
     shallow(<Search />);
   });
 
-  describe.skip("Suite de tests de l'affichage", () => {
+  describe("Suite de tests de l'affichage", () => {
     test("Le composant doit bien s'afficher", () => {
-      const title = "title";
-      const author = "author";
-      const date = 1546;
-      const cover = "cover";
+      const value = "value";
 
       const wrapper = shallow(
-        <Search title={title} author={author} date={date} cover={cover} />
+        <Search value={value} />
       );
 
       expect(wrapper).toMatchSnapshot();
     });
   });
 
-  describe.skip("Suite test des methodes", () => {
-    test("La propriété onClick doit être appelée lorsqu'on clique le container", () => {
-      const onClick = sinon.spy();
+  describe("Suite test des methodes", () => {
+    test("La propriété onChange doit être appelée", () => {
+      const onChange = sinon.spy();
 
-      const wrapper = shallow(<Search onClick={onClick} />);
+      const wrapper = shallow(<Search onChange={onChange} />);
 
-      wrapper.find(".container").simulate("click");
+      wrapper.find(".input").prop("onChange")();
 
-      expect(onClick.calledOnce).toEqual(true);
+      expect(onChange.calledOnce).toEqual(true);
     });
   });
 });

@@ -1,16 +1,41 @@
-import * as types from "../constants/feeds";
+import * as types from "../constants/books";
 import Api from "./../utils/api";
 
 /**
- * Permet de créer une nouvelle source
- * @param {string} name - Le nom de la source
- * @param {object} options - Les paramètres initiaux de la source
+ * Permet de changer la valeur de la recherche
+ * @param {string} value
  */
-export const addSource = (name, url, options) => ({
-  type: types.addSource,
-  name,
-  url,
-  options
+export const changeSearchValue = (value) => ({
+  type: types.changeSearchValue,
+  value
+});
+
+/**
+ * Permet de changer la valeur de la recherche
+ * @param {string} value
+ */
+export const storeBooks = ({search, books}) => ({
+  type: types.storeBooks,
+  search,
+  books
+});
+
+/**
+ * Permet de dire que la recherche est lancée
+ * @param {string} search - La valeur recherchée
+ */
+export const fetching = search => ({
+  type: types.fetching,
+  search
+});
+
+/**
+ * Permet de dire que la recherche est terminée
+ * @param {string} search - La valeur recherchée
+ */
+export const fetchEnd = search => ({
+  type: types.fetchEnd,
+  search
 });
 
 /**
@@ -18,66 +43,12 @@ export const addSource = (name, url, options) => ({
  * @param {string} name - Le nom de la source
  * @param {object} feeds - La liste des feeds
  */
-export const addFeeds = (name, feeds) => ({
-  type: types.addFeeds,
-  name,
-  feeds
-});
+export const changeSearchAndFetch = value => (dispatcher, getState) => {
+  dispatcher(changeSearchValue(value));
+  dispatcher(fetching(value));
 
-/**
- * Permet d'ajouter des feeds à une source
- * @param {string} name - Le nom de la source
- * @param {object} feeds - La liste des feeds
- */
-export const selectSource = name => ({
-  type: types.selectSource,
-  name,
-  meta: {
-    amplitude: {
-      name
-    }
-  }
-});
-
-/**
- * Permet d'ajouter des feeds à une source
- * @param {string} name - Le nom de la source
- * @param {object} feeds - La liste des feeds
- */
-export const fetchingSource = name => ({
-  type: types.fetchingSource,
-  name
-});
-
-/**
- * Permet d'ajouter des feeds à une source
- * @param {string} name - Le nom de la source
- * @param {object} feeds - La liste des feeds
- */
-export const fetchEndSource = name => ({
-  type: types.fetchEndSource,
-  name
-});
-
-/**
- * Permet d'ajouter des feeds à une source
- * @param {string} name - Le nom de la source
- * @param {object} feeds - La liste des feeds
- */
-export const fetchSource = name => (dispatcher, getState) => {
-  const { feeds } = getState();
-  const source = feeds.sources[name];
-
-  /* istanbul ignore next */
-  if (!source)
-    return Promise.reject(`The source with name ${name} does not exist`);
-
-  if (source.feeds.length > 0) return Promise.resolve();
-
-  dispatcher(fetchingSource(name));
-
-  return Api.getFeeds(name.toLocaleLowerCase()).then(response => {
-    dispatcher(addFeeds(name, response));
-    return dispatcher(fetchEndSource(name));
+  return Api.searchBooks({query: value}).then(response => {
+    dispatcher(fetchEnd(value));
+    return dispatcher(storeBooks({search: value, books: response.docs}));
   });
 };
