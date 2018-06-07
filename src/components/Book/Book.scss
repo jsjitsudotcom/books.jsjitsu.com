@@ -2,6 +2,11 @@
   width: 150px;
   padding: 0 5px;
   flex-shrink: 0;
+  transition: all .2s;
+
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 @keyframes loading {
@@ -16,6 +21,10 @@
   100% {
     opacity: 0.2;
   }
+}
+
+:local(.loadingWrapper){
+  padding: 10px;
 }
 
 :local(.loading){

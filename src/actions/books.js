@@ -5,7 +5,7 @@ import Api from "./../utils/api";
  * Permet de changer la valeur de la recherche
  * @param {string} value
  */
-export const changeSearchValue = (value) => ({
+export const changeSearchValue = value => ({
   type: types.changeSearchValue,
   value
 });
@@ -14,7 +14,7 @@ export const changeSearchValue = (value) => ({
  * Permet de changer la valeur de la recherche
  * @param {string} value
  */
-export const storeBooks = ({search, books}) => ({
+export const storeBooks = ({ search, books }) => ({
   type: types.storeBooks,
   search,
   books
@@ -47,8 +47,8 @@ export const changeSearchAndFetch = value => (dispatcher, getState) => {
   dispatcher(changeSearchValue(value));
   dispatcher(fetching(value));
 
-  return Api.searchBooks({query: value}).then(response => {
+  return Api.searchBooks({ query: value }).then(books => {
     dispatcher(fetchEnd(value));
-    return dispatcher(storeBooks({search: value, books: response.docs}));
+    return dispatcher(storeBooks({ search: value, books }));
   });
 };

@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 
 const Loading = () => (
   <div className={Style.container}>
-    <div className={Style.loading} />
+    <div className={Style.loadingWrapper}>
+      <div className={Style.loading} />
+    </div>
   </div>
 );
 
@@ -38,10 +40,5 @@ Book.propTypes = {
 };
 
 Book.defaultProps = {
-  title: "Default title",
-  date: 2022,
-  author: "John Doe",
-  cover:
-    "http://ia802702.us.archive.org/zipview.php?zip=/30/items/olcovers25/olcovers25.zip&file=258027.jpg",
   onClick: /* istanbul ignore next */ () => false
 };

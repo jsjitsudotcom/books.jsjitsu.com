@@ -19,7 +19,7 @@ describe("Api tests suite", () => {
     });
 
     return Api.searchBooks({ query }).then(source => {
-      expect(source.docs).toHaveLength(searchData.docs.length);
+      expect(source).toHaveLength(85); //Après avoir filtrer les mauvais livre
       fetchMock.restore();
     });
   });

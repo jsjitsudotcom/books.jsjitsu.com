@@ -12,13 +12,6 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
       key="0"
     >
       <Book
-        author={
-          Array [
-            "J. R. R. Tolkien",
-          ]
-        }
-        cover="http://covers.openlibrary.org/b/id/8069767.jpg"
-        date={1954}
         onClick={[Function]}
         title="The Lord of the Rings"
       />
@@ -28,13 +21,6 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
       key="1"
     >
       <Book
-        author={
-          Array [
-            "Cedco Publishing",
-          ]
-        }
-        cover="http://covers.openlibrary.org/b/id/1454705.jpg"
-        date={2001}
         onClick={[Function]}
         title="Lord of the Rings"
       />
@@ -44,13 +30,6 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
       key="2"
     >
       <Book
-        author={
-          Array [
-            "Doug Moe",
-          ]
-        }
-        cover="http://covers.openlibrary.org/b/id/2353908.jpg"
-        date={2004}
         onClick={[Function]}
         title="Lords of the Ring"
       />
@@ -60,13 +39,6 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
       key="3"
     >
       <Book
-        author={
-          Array [
-            "Ernest Mathijs",
-          ]
-        }
-        cover="http://covers.openlibrary.org/b/id/2111453.jpg"
-        date={2006}
         onClick={[Function]}
         title="Lord of the Rings"
       />

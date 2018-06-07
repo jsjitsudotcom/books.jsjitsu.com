@@ -6,23 +6,28 @@ import Connect from "./containers/Books";
 
 import Book from "./../Book/Book";
 
-const Loading = Array.from(new Array(4)).map(i => <Book key={i + "/loading"} loading />);
+const Loading = Array.from(new Array(4)).map((e, i) => (
+  <Book key={i + "/loading"} loading />
+));
 
 class Books extends PureComponent {
   render() {
     return (
       <div className={Style.container}>
+        {this.props.books.length === 0 && !this.props.loading && (
+          <div className={Style.message}>
+            Aucun livre trouvé, veuillez changer votre recherche
+          </div>
+        )}
         <div className={Style.books}>
           {this.props.books
             .map((book, i) => (
               <div className={Style.book} key={i}>
                 <Book
                   title={book.title}
-                  date={book.first_publish_year}
-                  author={book.author_name}
-                  cover={`http://covers.openlibrary.org/b/id/${
-                    book.cover_i
-                  }.jpg`}
+                  date={book.date}
+                  author={book.author}
+                  cover={book.cover}
                 />
               </div>
             ))

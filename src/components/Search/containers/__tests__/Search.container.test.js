@@ -56,7 +56,8 @@ describe("<Search.Container />", () => {
 
     await wrapper.$().prop("onChange")(value);
 
-    expect(store.getState().books.books.length).to.eq(booksData.docs.length);
+    // Après avoir filtrer les mauvais livres
+    expect(store.getState().books.books.length).to.eq(85); 
   });
 
   describe("Lorsque l'utilisateur fait plusieurs recherches", () => {
