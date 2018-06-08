@@ -3,6 +3,7 @@
   padding: 0 5px;
   flex-shrink: 0;
   transition: all .2s;
+  display: block;
 
   &:active {
     transform: scale(0.9);
