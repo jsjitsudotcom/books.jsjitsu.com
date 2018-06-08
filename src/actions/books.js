@@ -21,6 +21,16 @@ export const storeBooks = ({ search, books }) => ({
 });
 
 /**
+ * Permet d'ajouter de nouveaux livre aux livre actuel
+ * @param {Array<*>} books - Les livre à ajouter
+ */
+export const addBooks = ({ books, search }) => ({
+  type: types.addBooks,
+  books,
+  search
+});
+
+/**
  * Permet de dire que la recherche est lancée
  * @param {string} search - La valeur recherchée
  */
@@ -47,8 +57,21 @@ export const changeSearchAndFetch = value => (dispatcher, getState) => {
   dispatcher(changeSearchValue(value));
   dispatcher(fetching(value));
 
-  return Api.searchBooks({ query: value }).then(books => {
+  return Api.searchBooks({ query: value, page: 1 }).then(books => {
     dispatcher(fetchEnd(value));
     return dispatcher(storeBooks({ search: value, books }));
+  });
+};
+
+/**
+ * Permet de récupérer des nouveaux livres
+ */
+export const fetchMore = () => (dispatcher, getState) => {
+  const { books: { search, page } } = getState();
+  dispatcher(fetching(search));
+
+  return Api.searchBooks({ query: search, page: page + 1 }).then(books => {
+    dispatcher(fetchEnd(search));
+    return dispatcher(addBooks({ books, search }));
   });
 };

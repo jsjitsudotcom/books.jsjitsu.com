@@ -3,6 +3,7 @@ import * as constants from "./../constants/books";
 const initialState = {
   search: "",
   books: [],
+  page: 1,
   fetching: false
 };
 
@@ -22,6 +23,16 @@ export default function(state = initialState, action) {
       return {
         ...state,
         books: action.books
+      };
+    },
+
+    [constants.addBooks]() {
+      if (action.search !== state.search) return state;
+
+      return {
+        ...state,
+        books: state.books.concat(action.books),
+        page: state.page + 1
       };
     },
 

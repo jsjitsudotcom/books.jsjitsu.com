@@ -1,10 +1,10 @@
 import React from "react";
 
 import Book from "./../src/components/Book/Book";
-import Books from "./../src/components/Books/Books";
+import { Component as Books } from "./../src/components/Books/Books";
 
 import book from "./__data__/book.json";
-import booksData from "./../__fixtures__/books.json";
+import booksData from "./../__fixtures__/books-normalized.json";
 
 export default (storiesOf, addons) => {
   storiesOf("Book", module)

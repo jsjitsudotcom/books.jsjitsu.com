@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import Style from "./Book.scss";
 import PropTypes from "prop-types";
+import Cover from "./components/Cover/Cover";
 
 const Loading = () => (
   <div className={Style.container}>
@@ -16,12 +17,8 @@ export default class Book extends PureComponent {
 
     return (
       <div onClick={this.props.onClick} className={Style.container}>
-        <div
-          className={Style.cover}
-          style={{ backgroundImage: `url(${this.props.cover})` }}
-        >
-          <div className={Style.coverSize} />
-        </div>
+        <Cover cover={this.props.cover} />
+
         <div className={Style.info}>
           <div className={Style.title}>{this.props.title}</div>
           <div className={Style.author}>{this.props.author}</div>

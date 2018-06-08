@@ -5,18 +5,9 @@ exports[`<Book /> Suite de tests de l'affichage Le composant doit bien s'affiche
   className="container"
   onClick={[Function]}
 >
-  <div
-    className="cover"
-    style={
-      Object {
-        "backgroundImage": "url(cover)",
-      }
-    }
-  >
-    <div
-      className="coverSize"
-    />
-  </div>
+  <Cover
+    cover="cover"
+  />
   <div
     className="info"
   >
