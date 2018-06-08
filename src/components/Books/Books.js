@@ -29,6 +29,7 @@ class Books extends PureComponent {
                   date={book.date}
                   author={book.author}
                   cover={book.cover}
+                  link={book.link}
                 />
               </div>
             ))

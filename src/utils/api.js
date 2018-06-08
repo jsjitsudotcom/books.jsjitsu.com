@@ -43,6 +43,7 @@ export default {
       title: book.title,
       author: book.author_name[0],
       date: book.first_publish_year,
+      link: `https://openlibrary.org${book.key}`,
       cover: book.cover_i
         ? `http://covers.openlibrary.org/b/id/${book.cover_i}.jpg`
         : "https://www.parkablogs.com/sites/default/files/images/no-cover-image.jpg"

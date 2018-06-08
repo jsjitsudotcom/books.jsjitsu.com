@@ -16,7 +16,7 @@ export default class Book extends PureComponent {
     if (this.props.loading) return <Loading />;
 
     return (
-      <div onClick={this.props.onClick} className={Style.container}>
+      <a href={this.props.link} className={Style.container}>
         <Cover cover={this.props.cover} />
 
         <div className={Style.info}>
@@ -24,7 +24,7 @@ export default class Book extends PureComponent {
           <div className={Style.author}>{this.props.author}</div>
           <div className={Style.date}>{this.props.date}</div>
         </div>
-      </div>
+      </a>
     );
   }
 }
