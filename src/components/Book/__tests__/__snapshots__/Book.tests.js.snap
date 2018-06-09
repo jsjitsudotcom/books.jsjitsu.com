@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Book /> Suite de tests de l'affichage Le composant doit bien s'afficher 1`] = `
-<div
+<a
   className="container"
-  onClick={[Function]}
 >
   <Cover
     cover="cover"
@@ -27,5 +26,5 @@ exports[`<Book /> Suite de tests de l'affichage Le composant doit bien s'affiche
       1546
     </div>
   </div>
-</div>
+</a>
 `;

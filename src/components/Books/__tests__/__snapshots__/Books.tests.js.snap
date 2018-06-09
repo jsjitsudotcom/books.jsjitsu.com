@@ -15,6 +15,7 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
         author="J. R. R. Tolkien"
         cover="http://covers.openlibrary.org/b/id/3001457.jpg"
         date={1954}
+        link="https://openlibrary.org/works/OL27448W/The_Lord_of_the_Rings"
         onClick={[Function]}
         title="The Lord of the Rings"
       />
@@ -27,6 +28,7 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
         author="J. R. R. Tolkien"
         cover="http://covers.openlibrary.org/b/id/3001457.jpg"
         date={1954}
+        link="https://openlibrary.org/works/OL27448W/The_Lord_of_the_Rings"
         onClick={[Function]}
         title="The Lord of the Rings"
       />
@@ -39,6 +41,7 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
         author="J. R. R. Tolkien"
         cover="http://covers.openlibrary.org/b/id/3001457.jpg"
         date={1954}
+        link="https://openlibrary.org/works/OL27448W/The_Lord_of_the_Rings"
         onClick={[Function]}
         title="The Lord of the Rings"
       />
@@ -51,6 +54,7 @@ exports[`<Books /> Suite de tests de l'affichage Les livres doivent bien s'affic
         author="J. R. R. Tolkien"
         cover="http://covers.openlibrary.org/b/id/3001457.jpg"
         date={1954}
+        link="https://openlibrary.org/works/OL27448W/The_Lord_of_the_Rings"
         onClick={[Function]}
         title="The Lord of the Rings"
       />

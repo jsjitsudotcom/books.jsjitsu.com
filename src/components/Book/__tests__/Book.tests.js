@@ -22,16 +22,4 @@ describe("<Book />", () => {
       expect(wrapper).toMatchSnapshot();
     });
   });
-
-  describe("Suite test des methodes", () => {
-    test("La propriété onClick doit être appelée lorsqu'on clique le container", () => {
-      const onClick = sinon.spy();
-
-      const wrapper = shallow(<Book onClick={onClick} />);
-
-      wrapper.find(".container").simulate("click");
-
-      expect(onClick.calledOnce).toEqual(true);
-    });
-  });
 });
