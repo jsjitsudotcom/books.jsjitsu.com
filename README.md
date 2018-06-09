@@ -3,8 +3,7 @@
 
 # Introduction
 
-Ce projet à pour but de montrer comment développer un moteur de recherche avec React.
-en utilisant une API Externe. L'objectif est de montrer comment rendre le service
+Ce projet à pour but de montrer comment développer un moteur de recherche avec React en utilisant une API Externe. L'objectif est de montrer comment rendre le service
 agréable à utiliser et comment utiliser la technologie des Services Workers (Progressives Web Apps) pour accélérer les performances.
 
 # Installation
